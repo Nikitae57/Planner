@@ -2,7 +2,8 @@ name: Android CI
 
 on:
   push:
-    branches: [ "feature/Kaspresso-tests-advanced" ]
+    branches:
+      - ui-tests
 
 jobs:
   build:
