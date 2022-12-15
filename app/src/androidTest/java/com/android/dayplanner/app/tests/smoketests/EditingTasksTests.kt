@@ -11,94 +11,102 @@ import com.android.dayplanner.app.tests.scenarios.EditTaskScenario
 import org.junit.Test
 
 class EditingTasksTests : BaseTest() {
-
     @Test
     fun checkTheAbilityToEditTasksOnTheHomeScreen() = run {
-        scenario(
-            CreateCustomTaskScenario(
-                DataForTests.TASK_TITLE1,
-                DataForTests.TASK_DESCRIPTION1,
-                DataForTests.TASK_DATE1
-            )
-        )
-        scenario(
-            CreateCustomTaskScenario(
-                DataForTests.TASK_TITLE2,
-                DataForTests.TASK_DESCRIPTION2,
-                DataForTests.TASK_DATE2
-            )
-        )
-        scenario(
-            CreateCustomTaskScenario(
-                DataForTests.TASK_TITLE3,
-                DataForTests.TASK_DESCRIPTION3,
-                DataForTests.TASK_DATE3
-            )
-        )
-        step("Edit the task 1 on the \"Home\" screen") {
-            HomeScreen {
-                actionEditTheTask(DataForTests.TASK_TITLE1)
-            }
-        }
-        scenario(
-            EditTaskScenario(
-                DataForTests.EDIT_TASK_TITLE1,
-                DataForTests.EDIT_TASK_DESCRIPTION1,
-                DataForTests.EDIT_TASK_DATE1
-            )
-        )
-        step("Check the modify task 1 is displayed on the \"Home\" screen") {
-            HomeScreen {
-                assertTaskAddedInTheList(
-                    DataForTests.EDIT_TASK_TITLE1,
-                    DataForTests.EDIT_TASK_DESCRIPTION1,
-                    DataForTests.EDIT_TASK_DATE1
-                )
-            }
-        }
-        step("Edit the task2 on the \"Home\" screen") {
-            HomeScreen {
-                actionEditTheTask(DataForTests.TASK_TITLE2)
-            }
-        }
-        scenario(
-            EditTaskScenario(
-                DataForTests.EDIT_TASK_TITLE2,
-                DataForTests.EDIT_TASK_DESCRIPTION2,
-                DataForTests.EDIT_TASK_DATE2
-            )
-        )
-        step("Check the modify task 2 is displayed on the \"Home\" screen") {
-            HomeScreen {
-                assertTaskAddedInTheList(
-                    DataForTests.EDIT_TASK_TITLE2,
-                    DataForTests.EDIT_TASK_DESCRIPTION2,
-                    DataForTests.EDIT_TASK_DATE2
-                )
-            }
-        }
-        step("Edit the task 3 on the \"Home\" screen") {
-            HomeScreen {
-                actionEditTheTask(DataForTests.TASK_TITLE3)
-            }
-        }
-        scenario(
-            EditTaskScenario(
-                DataForTests.EDIT_TASK_TITLE3,
-                DataForTests.EDIT_TASK_DESCRIPTION3,
-                DataForTests.EDIT_TASK_DATE3
-            )
-        )
-        step("Check the modify task 3 is displayed on the \"Home\" screen") {
-            HomeScreen {
-                assertTaskAddedInTheList(
-                    DataForTests.EDIT_TASK_TITLE3,
-                    DataForTests.EDIT_TASK_DESCRIPTION3,
-                    DataForTests.EDIT_TASK_DATE3
-                )
-            }
+        HomeScreen {
+            actionClickOnFabTaskButton()
         }
     }
+
+
+//    @Test
+//    fun checkTheAbilityToEditTasksOnTheHomeScreen() = run {
+//        scenario(
+//            CreateCustomTaskScenario(
+//                DataForTests.TASK_TITLE1,
+//                DataForTests.TASK_DESCRIPTION1,
+//                DataForTests.TASK_DATE1
+//            )
+//        )
+//        scenario(
+//            CreateCustomTaskScenario(
+//                DataForTests.TASK_TITLE2,
+//                DataForTests.TASK_DESCRIPTION2,
+//                DataForTests.TASK_DATE2
+//            )
+//        )
+//        scenario(
+//            CreateCustomTaskScenario(
+//                DataForTests.TASK_TITLE3,
+//                DataForTests.TASK_DESCRIPTION3,
+//                DataForTests.TASK_DATE3
+//            )
+//        )
+//        step("Edit the task 1 on the \"Home\" screen") {
+//            HomeScreen {
+//                actionEditTheTask(DataForTests.TASK_TITLE1)
+//            }
+//        }
+//        scenario(
+//            EditTaskScenario(
+//                DataForTests.EDIT_TASK_TITLE1,
+//                DataForTests.EDIT_TASK_DESCRIPTION1,
+//                DataForTests.EDIT_TASK_DATE1
+//            )
+//        )
+//        step("Check the modify task 1 is displayed on the \"Home\" screen") {
+//            HomeScreen {
+//                assertTaskAddedInTheList(
+//                    DataForTests.EDIT_TASK_TITLE1,
+//                    DataForTests.EDIT_TASK_DESCRIPTION1,
+//                    DataForTests.EDIT_TASK_DATE1
+//                )
+//            }
+//        }
+//        step("Edit the task2 on the \"Home\" screen") {
+//            HomeScreen {
+//                actionEditTheTask(DataForTests.TASK_TITLE2)
+//            }
+//        }
+//        scenario(
+//            EditTaskScenario(
+//                DataForTests.EDIT_TASK_TITLE2,
+//                DataForTests.EDIT_TASK_DESCRIPTION2,
+//                DataForTests.EDIT_TASK_DATE2
+//            )
+//        )
+//        step("Check the modify task 2 is displayed on the \"Home\" screen") {
+//            HomeScreen {
+//                assertTaskAddedInTheList(
+//                    DataForTests.EDIT_TASK_TITLE2,
+//                    DataForTests.EDIT_TASK_DESCRIPTION2,
+//                    DataForTests.EDIT_TASK_DATE2
+//                )
+//            }
+//        }
+//        step("Edit the task 3 on the \"Home\" screen") {
+//            HomeScreen {
+//                actionEditTheTask(DataForTests.TASK_TITLE3)
+//            }
+//        }
+//        scenario(
+//            EditTaskScenario(
+//                DataForTests.EDIT_TASK_TITLE3,
+//                DataForTests.EDIT_TASK_DESCRIPTION3,
+//                DataForTests.EDIT_TASK_DATE3
+//            )
+//        )
+//        step("Check the modify task 3 is displayed on the \"Home\" screen") {
+//            HomeScreen {
+//                assertTaskAddedInTheList(
+//                    DataForTests.EDIT_TASK_TITLE3,
+//                    DataForTests.EDIT_TASK_DESCRIPTION3,
+//                    DataForTests.EDIT_TASK_DATE3
+//                )
+//            }
+//            Thread.sleep(5000)
+//        }
+//    }
 //
 //    @Test
 //    fun checkTheAbilityToEditTasksOnTheTaskHistoryScreen() = run {

@@ -17,8 +17,7 @@ open class BaseTest : TestCase() {
 
     @After
     fun tearDown() {
-        if (this::activityScenario.isInitialized) {
             activityScenario.close()
-        }
+
     }
 }
