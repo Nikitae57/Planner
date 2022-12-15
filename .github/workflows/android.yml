@@ -25,7 +25,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: Run build with Gradle Wrapper
-        run: ./gradlew build
+        run: ./gradlew assembleDebug assembleDebugAndroidTest
   unit-test:
     needs: [ build ]
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
 
   instrumentation-test:
     needs: [ build ]
-    runs-on: macos-11
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -45,8 +45,8 @@ jobs:
       - name: Run Kaspresso tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 23
+          api-level: 29
           target: default
           arch: x86_64
-          profile: Nexus 6
+          profile: Nexus 6P
           script: ./gradlew connectedCheck
