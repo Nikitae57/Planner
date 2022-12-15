@@ -39,6 +39,9 @@ android {
         jvmTarget = "11"
     }
 
+    installation {
+        timeOutInMs = 60000 // set timeout to 1 minute
+    }
 
     buildFeatures {
         dataBinding = true
