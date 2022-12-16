@@ -1,5 +1,6 @@
 package com.android.dayplanner.app.tests.smoketests
 
+import androidx.test.rule.GrantPermissionRule
 import com.android.dayplanner.app.screens.HomeScreen
 import com.android.dayplanner.app.screens.TasksHistoryScreen
 import com.android.dayplanner.app.tests.BaseTest
@@ -8,9 +9,18 @@ import com.android.dayplanner.app.tests.scenarios.CreateCustomTaskScenario
 import com.android.dayplanner.app.tests.scenarios.CreateLongDummyTaskScenario
 import com.android.dayplanner.app.tests.scenarios.CreateShortDummyTaskScenario
 import com.android.dayplanner.app.tests.scenarios.EditTaskScenario
+import org.junit.Rule
 import org.junit.Test
 
 class EditingTasksTests : BaseTest() {
+
+    @JvmField
+    @Rule
+    val permissionRule: GrantPermissionRule = GrantPermissionRule.grant(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+
+    @JvmField
+    @Rule
+    val permissionRule2: GrantPermissionRule = GrantPermissionRule.grant(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
 
     @Test
